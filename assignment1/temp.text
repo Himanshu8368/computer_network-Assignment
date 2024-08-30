@@ -1,0 +1,140 @@
+
+// this is temporary file
+
+QUESTION 1
+
+a )  ifconfig image is given below.
+
+himanshu@LAPTOP-TEI86904:~$ ifconfig
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.27.245.93  netmask 255.255.240.0  broadcast 172.27.255.255
+        inet6 fe80::215:5dff:feb2:ab30  prefixlen 64  scopeid 0x20<link>
+        ether 00:15:5d:b2:ab:30  txqueuelen 1000  (Ethernet)
+        RX packets 200  bytes 402113 (402.1 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 119  bytes 29069 (29.0 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 28  bytes 2908 (2.9 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 28  bytes 2908 (2.9 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+himanshu@LAPTOP-TEI86904:~$
+
+
+b )  The IP shown by ifconfig will likely be different from the one shown on the website. Here’s why:
+
+Local IP Address (from ifconfig): This is your private IP address within your local network. It is usually in the range of addresses like 192.168.x.x or 10.x.x.x, depending on the router's configuration. This IP is assigned to your device by your router via DHCP and is only visible within your local network.
+
+Public IP Address (from whatismyip.com): This is your public IP address, which is assigned to your network by your Internet Service Provider (ISP). It is the IP address that is visible to the outside world when you access websites and services on the internet.
+
+The difference occurs because your router uses a technology called Network Address Translation (NAT) to translate the private IP address of your device to the public IP address assigned by your ISP. This process allows multiple devices on your local network to share a single public IP address.
+
+
+QUESTION 2
+
+ifconfig -a : it give this 
+
+    Primary Network Interface: eth0  -- this is main ip address
+    Docker Virtual Interface: docker0
+    Loopback Interface: lo
+
+sudo ifconfig eth0 155.13.12.11 netmask 255.255.255.0 : it change ip to 155.13.12.11
+
+ifconfig eth0 :  here check changes
+
+sudo ifconfig eth0 172.27.245.93 netmask 255.255.255.0 : again change to original ip address
+
+ifconfig eth0 : again check the ip address
+
+
+Question 4
+
+
+b )
+
+himanshu@LAPTOP-TEI86904:~$ dig google.com
+
+; <<>> DiG 9.18.12-0ubuntu0.22.04.3-Ubuntu <<>> google.com
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 35850
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4000
+;; QUESTION SECTION:
+;google.com.                    IN      A
+
+;; ANSWER SECTION:
+google.com.             120     IN      A       142.250.206.174
+
+;; Query time: 9 msec
+;; SERVER: 10.255.255.254#53(10.255.255.254) (UDP)
+;; WHEN: Fri Aug 30 15:23:29 IST 2024
+;; MSG SIZE  rcvd: 55
+
+
+himanshu@LAPTOP-TEI86904:~$ nslookup -debug google.in
+Server:         10.255.255.254
+Address:        10.255.255.254#53
+
+------------
+    QUESTIONS:
+        google.in, type = A, class = IN
+    ANSWERS:
+    ->  google.in
+        internet address = 142.250.193.4
+        ttl = 226
+    AUTHORITY RECORDS:
+    ADDITIONAL RECORDS:
+------------
+Non-authoritative answer:
+Name:   google.in
+Address: 142.250.193.4
+------------
+    QUESTIONS:
+        google.in, type = AAAA, class = IN
+    ANSWERS:
+    ->  google.in
+        has AAAA address 2404:6800:4002:819::2004
+        ttl = 300
+    AUTHORITY RECORDS:
+    ADDITIONAL RECORDS:
+------------
+Name:   google.in
+Address: 2404:6800:4002:819::2004
+
+--------------------------------------------------------------
+
+----------------------------------------------------------------
+
+Disabling the Loopback Interface: The loopback interface (lo on Linux or lo0 on macOS) is responsible for handling packets addressed to 127.0.0.1. By disabling this interface, packets to 127.0.0.1 are dropped, resulting in 100% packet loss.
+
+Ping Command: When you ping 127.0.0.1, you are sending packets to the local machine. With the loopback interface down, the packets cannot be transmitted or received, leading to packet loss.
+
+Re-enabling: After testing, bringing the loopback interface back up restores normal functionality, allowing pings to 127.0.0.1 to succeed again.
+
+
+--------------------------
+----------------
+
+When using the traceroute command, you may see multiple entries for a single hop. Here’s what these entries represent:
+
+Multiple Entries for a Single Hop
+Purpose:
+
+Traceroute works by sending a series of packets with increasing Time-To-Live (TTL) values. Each hop along the route decrements the TTL, and when TTL reaches zero, the router returns a "Time Exceeded" message. This process helps identify the path taken by packets.
+Entries in Output:
+
+Multiple Response Times: Each line of output for a hop typically shows the round-trip times (RTTs) for three different packets sent to that hop. This is done to provide a more accurate representation of latency and to observe variations in response times.
+
+
+
+
+
