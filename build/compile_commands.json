@@ -1,0 +1,26 @@
+[
+{
+  "directory": "D:/5th_Sem/Computer Networking/assignment/build",
+  "command": "C:\\MinGW\\bin\\gcc.exe  @CMakeFiles/assignment2.dir/includes_C.rsp -g -o CMakeFiles\\assignment2.dir\\client.c.obj -c \"D:\\5th_Sem\\Computer Networking\\assignment\\assignment2\\client.c\"",
+  "file": "D:/5th_Sem/Computer Networking/assignment/assignment2/client.c",
+  "output": "CMakeFiles/assignment2.dir/client.c.obj"
+},
+{
+  "directory": "D:/5th_Sem/Computer Networking/assignment/build",
+  "command": "C:\\MinGW\\bin\\gcc.exe  @CMakeFiles/assignment2.dir/includes_C.rsp -g -o CMakeFiles\\assignment2.dir\\server.c.obj -c \"D:\\5th_Sem\\Computer Networking\\assignment\\assignment2\\server.c\"",
+  "file": "D:/5th_Sem/Computer Networking/assignment/assignment2/server.c",
+  "output": "CMakeFiles/assignment2.dir/server.c.obj"
+},
+{
+  "directory": "D:/5th_Sem/Computer Networking/assignment/build",
+  "command": "C:\\MinGW\\bin\\gcc.exe  @CMakeFiles/assignment2.dir/includes_C.rsp -g -o CMakeFiles\\assignment2.dir\\q1.c.obj -c \"D:\\5th_Sem\\Computer Networking\\assignment\\assignment2\\q1.c\"",
+  "file": "D:/5th_Sem/Computer Networking/assignment/assignment2/q1.c",
+  "output": "CMakeFiles/assignment2.dir/q1.c.obj"
+},
+{
+  "directory": "D:/5th_Sem/Computer Networking/assignment/build",
+  "command": "C:\\MinGW\\bin\\gcc.exe  @CMakeFiles/assignment2.dir/includes_C.rsp -g -o CMakeFiles\\assignment2.dir\\q2.c.obj -c \"D:\\5th_Sem\\Computer Networking\\assignment\\assignment2\\q2.c\"",
+  "file": "D:/5th_Sem/Computer Networking/assignment/assignment2/q2.c",
+  "output": "CMakeFiles/assignment2.dir/q2.c.obj"
+}
+]

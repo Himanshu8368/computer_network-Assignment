@@ -1,0 +1,8 @@
+a)
+/usr/lib/linux-tools/5.15.0-122-generic/perf stat ./server1
+./client1 3
+or 
+for i in {1..10}; do ./client1 3 & done
+wait
+
+B) 
